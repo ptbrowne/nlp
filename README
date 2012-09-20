@@ -1,1 +1,28 @@
-hello
+NLP Project
+===========
+
+Finding the genre of a song based on its lyrics.
+------------------------------------------------
+
+This repo is part of a project done during the Natural Language Processing in Python
+course given at KAIST during Spring 2012. The aim of this project was to automatically 
+find the theme of a song based on its lyrics.
+
+Tagging by Hand
+---------------
+
+The first goal was to find plenty of lyrics, tag them by hand and then run a machine learning
+algorithm for the program to learn to which words is associated a particular theme.
+
+We first scraped 250 lyrics from letssingit.com and built an interface using Meteor.js to
+tag them with words like "violence", "love", "party".
+
+Compute TF-IDF and train classifier
+-----------------------------------
+
+The last step was to compute the tf-idf for each term and then train a Naive
+Bayes classifier from the library nltk on this data. After this step, our algorithm 
+would normally be able to automatically classify new songs based on its lyrics.
+
+Unfortunately, since the sample of lyrics was too small and the tagging a bit incoherent
+since it had been done by 3 different people, the classifier had a poor recall and precision.   
