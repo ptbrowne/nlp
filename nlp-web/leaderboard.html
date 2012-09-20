@@ -1,0 +1,58 @@
+<head>
+  <title>Leaderboard</title>
+</head>
+
+<body>
+
+  <div id="outer">
+    {{> leaderboard}}
+  </div>
+  
+</body>
+
+<template name="leaderboard">
+    
+        <div id="tags">
+        {{#each tags}}
+            {{> tag}}
+        {{/each}}<br/>
+        add tag : <input type="text" id="addTag" />
+    </div>
+
+  <div id="content" class="leaderboard">
+  <h1 id="counter">{{number_song_tagged}} / {{number_song}}</h1>
+    {{#each lyrics}}
+      {{> lyric}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="lyric">
+  <div id="{{id}}" class="lyric {{selected}}">
+    <span class="name">{{n}}. {{artists}} - {{title}}</span>
+    <span class="genre">{{#each genre}}<li>{{this}}</li>{{/each}}</span>
+    <div class="tags">
+    {{#each tags}}
+        {{> innertag}}
+    {{/each}}
+    </div>
+    <div id="content-{{id}}" class="{{selected}} content-lyrics">
+    {{#each lyrics}}
+        <p>
+        {{#each this}}
+            {{this}}</br>
+        {{/each}}
+        </p>
+    {{/each}}
+    </div>
+
+  </div>
+</template>
+
+<template name="tag">
+    <div class="tag" id="{{_id}}"><span class="name">{{tag}} ({{n}})</span> <span class="del"><i class="icon-remove"></i></span></div>
+</template>
+
+<template name="innertag">
+     <span class="tag">{{this}}</span>
+</template>
